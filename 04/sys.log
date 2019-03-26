@@ -1,0 +1,14 @@
+Mar 14 20:02:49 nidzik kernel: [ 1134.724890] usb 1-2: new full-speed USB device number 7 using xhci_hcd
+Mar 14 20:02:49 nidzik kernel: [ 1134.853773] usb 1-2: New USB device found, idVendor=0e6a, idProduct=6001, bcdDevice= 0.07
+Mar 14 20:02:49 nidzik kernel: [ 1134.855179] usb 1-2: New USB device strings: Mfr=0, Product=1, SerialNumber=0
+Mar 14 20:02:49 nidzik kernel: [ 1134.855573] usb 1-2: Product: HID Keyboard Device
+Mar 14 20:02:49 nidzik kernel: [ 1134.868602] input: HID Keyboard Device as /devices/pci0000:00/0000:00:0c.0/usb1/1-2/1-2:1.0/0003:0E6A:6001.000A/input/input19
+Mar 14 20:02:49 nidzik kernel: [ 1134.923000] hid-generic 0003:0E6A:6001.000A: input,hidraw1: USB HID v1.10 Keyboard [HID Keyboard Device] on usb-0000:00:0c.0-2/input0
+Mar 14 20:02:49 nidzik kernel: [ 1134.929305] input: HID Keyboard Device Consumer Control as /devices/pci0000:00/0000:00:0c.0/usb1/1-2/1-2:1.1/0003:0E6A:6001.000B/input/input20
+Mar 14 20:02:49 nidzik kernel: [ 1134.983294] input: HID Keyboard Device System Control as /devices/pci0000:00/0000:00:0c.0/usb1/1-2/1-2:1.1/0003:0E6A:6001.000B/input/input21
+Mar 14 20:02:49 nidzik kernel: [ 1134.984195] hid-generic 0003:0E6A:6001.000B: input,hidraw2: USB HID v1.10 Device [HID Keyboard Device] on usb-0000:00:0c.0-2/input1
+Mar 14 20:02:49 nidzik kernel: [ 1134.986537] MyUsbModule: Hello World!
+Mar 14 20:02:49 nidzik kernel: [ 1134.986948] usbcore: registered new interface driver hello_driver
+Mar 14 20:02:55 nidzik kernel: [ 1140.230190] usb 1-2: USB disconnect, device number 7
+Mar 14 20:03:02 nidzik kernel: [ 1148.035505] usbcore: deregistering interface driver hello_driver
+Mar 14 20:03:02 nidzik kernel: [ 1148.036218] MyUsbModule: exit...
