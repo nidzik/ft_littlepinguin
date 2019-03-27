@@ -25,6 +25,7 @@ int main(int ac, char **av)
 	int fd2 = open("/sys/kernel/debug/t/foo", O_RDWR);
 
 	printf("-------------\n\nfoo : write(nidzik) : %d \n",write(fd2, "nidzik", 6));
+	bzero(buf,256);
 	ret = read(fd2, buf, 14);
 	printf("read jiffies [14]: %s, ret value : %d\n",buf,ret);
 return 0;

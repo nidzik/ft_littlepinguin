@@ -9,8 +9,7 @@ clean:
 
 test:
 	sudo insmod main.ko
-	sudo ls -l /sys/kernel/debug/
-	sudo ls -l /sys/kernel/debug/id
+	sudo ls -l /sys/kernel/debug/t
 	cat /sys/kernel/debug/id11
 	echo -ne nidzik > /sys/kernel/debug/id11
 	sudo rmmod main

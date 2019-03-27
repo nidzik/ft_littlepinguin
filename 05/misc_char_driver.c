@@ -18,17 +18,14 @@ static ssize_t my_write(struct file *file,
 			size_t count,
 			loff_t *ppos)
 {
+	char *name = "nidzik";
+	if (!file || !ubuf || !ppos)
+		return (-EFAULT);
 
-	if (strncmp(ubuf, "nidzik\n", 7 ) == 0)
-	{
-		printk("TRUE\n");	
-		return 7;
-	}
+	if (strncmp(ubuf, name, 7 ) == 0)
+		return 6;
 	else 
-	{
-		printk("FALSE\n");
-		return EINVAL;
-	}
+		return (-EINVAL);
 }
 
 
@@ -40,7 +37,7 @@ static ssize_t my_read(struct file *file, char __user *buf, size_t size, loff_t 
 	if (!file || !buf || !pos)
 		return (-EFAULT);	
 	if (size < 6)
-		return -EINVAL;
+		return (-EINVAL);
 	else if (*pos >= 6)
 		return 0;
 
@@ -61,18 +58,18 @@ static const struct file_operations mymisc_fops = {
 static int __init hello_init(void) {
 	int retval;
 	
-	printk(KERN_INFO "Hello Wolrd!\n");
+	printk(KERN_INFO "Init module misc!\n");
     	my_dev.minor = MISC_DYNAMIC_MINOR;
     	my_dev.name = "fortytwo";
     	my_dev.fops = &mymisc_fops;
     	retval = misc_register(&my_dev);
     	if (retval) return retval;
-    	printk("my: got minor %i\n",my_dev.minor);
+    	printk("my_misc: got minor %i\n",my_dev.minor);
 	return 0;
 }
 
 static void __exit hello_cleanup(void) {
-	printk(KERN_INFO "Cleaning up module.\n");
+	printk(KERN_INFO "Cleaning up module misc.\n");
 	misc_deregister(&my_dev);
 }
 
