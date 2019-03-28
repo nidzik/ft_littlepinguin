@@ -1,6 +1,5 @@
 
-
-obj-m += fix.o
+obj-m += mounted.o
 
 all:
 	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
@@ -8,3 +7,7 @@ all:
 clean:
 	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) clean
 
+test:
+	sudo insmod mounted.ko
+	cat /proc/mymount
+	sudo rmmod mounted
