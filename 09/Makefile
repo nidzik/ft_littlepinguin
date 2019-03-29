@@ -9,5 +9,5 @@ clean:
 
 test:
 	sudo insmod mounted.ko
-	cat /proc/mymount
+	cat /proc/mymounts
 	sudo rmmod mounted
