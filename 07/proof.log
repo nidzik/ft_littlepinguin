@@ -1,0 +1,42 @@
+$ make
+make -C /lib/modules/4.20.0-thor_kernel-00087-gc8ce94b8fe53-dirty/build M=/home/nico/ft_littlepinguin/07 modules
+make[1]: Entering directory '/usr/src/kernel-4.20.3-nico'
+  CC [M]  /home/nico/ft_littlepinguin/07/main.o
+  Building modules, stage 2.
+  MODPOST 1 modules
+  CC      /home/nico/ft_littlepinguin/07/main.mod.o
+  LD [M]  /home/nico/ft_littlepinguin/07/main.ko
+make[1]: Leaving directory '/usr/src/kernel-4.20.3-nico'
+
+nico at nidzik in ~/ft_littlepinguin/07 on master*
+$ cat /sys/kernel/debug/fortytwo/id
+nidziknico at nidzik in ~/ft_littlepinguin/07 on master*
+$ echo -ne "nidzik" >  /sys/kernel/debug/fortytwo/id
+
+nico at nidzik in ~/ft_littlepinguin/07 on master*
+$ echo -ne "nidzikkk" >  /sys/kernel/debug/fortytwo/id
+-bash: echo: write error: Invalid argument
+
+nico at nidzik in ~/ft_littlepinguin/07 on master*
+$ cat /sys/kernel/debug/fortytwo/jiffies
+4299586777
+
+nico at nidzik in ~/ft_littlepinguin/07 on master*
+$ echo -ne "nidzikkk" >  /sys/kernel/debug/fortytwo/foo
+-bash: /sys/kernel/debug/fortytwo/foo: Permission denied
+
+nico at nidzik in ~/ft_littlepinguin/07 on master*
+$ sudo su root
+bash-4.4# echo -ne "nidzikkk" >  /sys/kernel/debug/fortytwo/foo
+bash-4.4# exit
+
+nico at nidzik in ~/ft_littlepinguin/07 on master*
+$ cat /sys/kernel/debug/fortytwo/foo
+nidzikkknico at nidzik in ~/ft_littlepinguin/07 on master*
+$ ls -la /sys/kernel/debug/fortytwo/
+total 0
+drwxr-xr-x  2 root root 0 Mar 30 15:57 .
+drwxrwxrwx 22 root root 0 Mar 30 15:57 ..
+-rw----r--  1 root root 0 Mar 30 16:04 foo
+-rw-rw-rw-  1 root root 0 Mar 30 16:03 id
+-r--r--r--  1 root root 0 Mar 30 15:57 jiffies
