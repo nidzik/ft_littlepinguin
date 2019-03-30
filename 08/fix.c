@@ -45,7 +45,7 @@ static int __init myfd_init(void)
 
 static void __exit myfd_cleanup(void)
 {
-	if (tmp)
+	if (tmp != NULL)
 		kfree(tmp);
 	tmp = NULL;
 	misc_deregister(&myfd_device);
@@ -58,8 +58,7 @@ ssize_t myfd_read(struct file *fp, char __user *user, size_t size, loff_t *offs)
 	/***************
 	 * Malloc like a boss
 	 ***************/
-	printk(KERN_INFO "123");
-	if (tmp2)
+	if (tmp2 != NULL)
 		kfree(tmp2);
 	tmp2 = kmalloc(sizeof(char) * PAGE_SIZE * 2, GFP_KERNEL);
 	tmp = tmp2;
@@ -74,7 +73,7 @@ ssize_t myfd_write(struct file *fp, const char __user *user, size_t size,
 {
 	ssize_t res;
 
-	res = simple_write_to_buffer(str, size, offs, user, size) + 1;	
+	res = simple_write_to_buffer(str, size, offs, user, size) + 1;
 	str[size + 1] = 0x0;
 	return res;
 }
