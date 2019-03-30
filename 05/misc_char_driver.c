@@ -18,12 +18,13 @@ static ssize_t my_write(struct file *file,
 			size_t count,
 			loff_t *ppos)
 {
-	char *name = "nidzik";
+	char *name = "nidzik\0";
+
 	if (!file || !ubuf || !ppos)
 		return (-EFAULT);
 
 	if (strncmp(ubuf, name, 7 ) == 0)
-		return 6;
+		return 7;
 	else 
 		return (-EINVAL);
 }
@@ -32,22 +33,22 @@ static ssize_t my_write(struct file *file,
 static ssize_t my_read(struct file *file, char __user *buf, size_t size, loff_t * pos)
 {
 	int error_count = 0;
-	char * name = "nidzik";
+	char * name = "nidzik\0";
 	
 	if (!file || !buf || !pos)
 		return (-EFAULT);	
-	if (size < 6)
+	if (size < 7)
 		return (-EINVAL);
-	else if (*pos >= 6)
+	else if (*pos >= 7)
 		return 0;
 
-	error_count = copy_to_user((void *)buf + *pos , name, 6);
+	error_count = copy_to_user((void *)buf + *pos , name, 7);
 	
 	if (error_count)
 		return(-EFAULT);
-	*pos += size;
+	*pos += 7;
 	
-	return  (6);
+	return  (7);
 }
 
 static const struct file_operations mymisc_fops = {  

@@ -1,7 +1,7 @@
 Nov 21 18:03:16 nidzik kernel: klogd 1.5.1, log source = /proc/kmsg started.
 Nov 21 18:03:16 nidzik kernel: Cannot find map file.
 Nov 21 18:03:16 nidzik kernel: Loaded 47308 symbols from 1 module.
-Nov 21 18:03:16 nidzik kernel: [    0.000000] Linux version 4.20.0-rc3-00087-gc8ce94b8fe53 (root@bbichero) (gcc version 7.2.0 (GCC)) #1 SMP Wed Nov 21 16:30:47 CET 2018
+Nov 21 18:03:16 nidzik kernel: [    0.000000] Linux version 4.20.0-rc3-00087-gc8ce94b8fe53 (root@nidzik) (gcc version 7.2.0 (GCC)) #1 SMP Wed Nov 21 16:30:47 CET 2018
 Nov 21 18:03:16 nidzik kernel: [    0.000000] Command line: BOOT_IMAGE=/vmlinuz-4.20.3-nico-debugkernel root=/dev/sda1 ro
 Nov 21 18:03:16 nidzik kernel: [    0.000000] x86/fpu: Supporting XSAVE feature 0x001: 'x87 floating point registers'
 Nov 21 18:03:16 nidzik kernel: [    0.000000] x86/fpu: Supporting XSAVE feature 0x002: 'SSE registers'

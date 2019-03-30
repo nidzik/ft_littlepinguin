@@ -1,7 +1,44 @@
-$ sudo insmod misc_char_driver.ko
+$ make
+make -C /lib/modules/4.20.0-thor_kernel-00087-gc8ce94b8fe53-dirty/build M=/home/nico/ft_littlepinguin/05 modules
+make[1]: Entering directory '/usr/src/kernel-4.20.3-nico'
+  CC [M]  /home/nico/ft_littlepinguin/05/misc_char_driver.o
+  Building modules, stage 2.
+  MODPOST 1 modules
+  CC      /home/nico/ft_littlepinguin/05/misc_char_driver.mod.o
+  LD [M]  /home/nico/ft_littlepinguin/05/misc_char_driver.ko
+make[1]: Leaving directory '/usr/src/kernel-4.20.3-nico'
 
-$ ls -la /dev/fortytwo
-crw------- 1 root root 10, 57 Mar 15 16:52 /dev/fortytwo
 
-$ sudo sh -c "cat /dev/fortytwo"
-nidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidziknidzik^C
+nico at nidzik in ~/ft_littlepinguin/05 on master*
+$ sudo su root
+[sudo] password for nico:
+
+bash-4.4# insmod misc_char_driver.ko
+
+bash-4.4# cat /dev/fortytwo
+nidzikbash-4.4# echo gg > /dev/fortytwo
+bash: echo: write error: Invalid argument
+
+bash-4.4# echo -ne "nidzik" > /dev/fortytwo
+bash-4.4# gcc test.c
+
+bash-4.4# ./a.out
+read string buf[4]: , ret value : -1
+read string buf[4]: , ret value : -1
+read string buf[6]: , ret value : -1
+read string buf[16]: nidzik, ret value : 7
+----------------
+write(nidzik) : 6
+write(nidzikk) : -1
+write(ni) : -1
+write(nidzikkkkk) :  -1
+bash-4.4# ./a.out
+read string buf[4]: , ret value : -1
+read string buf[4]: , ret value : -1
+read string buf[6]: , ret value : -1
+read string buf[16]: nidzik, ret value : 7
+----------------
+write(nidzik) : 7
+write(nidzikk) : -1
+write(ni) : -1
+write(nidzikkkkk) :  -1
